@@ -1,4 +1,4 @@
-# Vortrag WebRTC
+# Vortrag WebRTC Security
 
 ## Gliederung
 
@@ -27,7 +27,7 @@
 ** SCTP over DTLS
 ** DTLS/SRTP
 ** Authentication
-** Man in the Middle
+** Man in the Middle Signaling + Server
 
 ## Quellen
 
