@@ -1,0 +1,42 @@
+v=0
+o=Mozilla-SIPUA-31.7.0 20760 0 IN IP4 0.0.0.0
+s=SIP Call
+t=0 0
+a=ice-ufrag:e1d171ac
+a=ice-pwd:386dcc541b3ad3bdd90350f502f935eb
+a=fingerprint:sha-256 7A:A6:42:8F:BE:4B:2D:A2:AE:9F:F1:35:6C:EE:F3:08:99:1D:7A:6B:6F:C9:73:7F:20:8A:17:02:FF:C5:EE:6A
+m=audio 33882 RTP/SAVPF 109 0 8 101
+a=crypto:1 AES_CM_128_HMAC_SHA1_80 inline:x5IUuL++='jx6la\mjg#f>(D#:Ui\cme!F./{iCO
+c=IN IP4 84.183.228.37
+a=rtpmap:109 opus/48000/2
+a=ptime:20
+a=rtpmap:0 PCMU/8000
+a=rtpmap:8 PCMA/8000
+a=rtpmap:101 telephone-event/8000
+a=fmtp:101 0-15
+a=sendrecv
+a=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level
+a=setup:actpass
+a=candidate:0 1 UDP 2122252543 192.168.147.100 33882 typ host
+a=candidate:1 1 UDP 1686110207 84.183.228.37 33882 typ srflx raddr 192.168.147.100 rport 33882
+a=candidate:0 2 UDP 2122252542 192.168.147.100 60071 typ host
+a=candidate:1 2 UDP 1686110206 84.183.228.37 60071 typ srflx raddr 192.168.147.100 rport 60071
+a=rtcp-mux
+m=video 34606 RTP/SAVPF 120
+a=crypto:1 AES_CM_128_HMAC_SHA1_80 inline:x5IUuL++='jx6la\mjg#f>(D#:Ui\cme!F./{iCO
+c=IN IP4 192.168.147.100
+a=rtpmap:120 VP8/90000
+a=sendrecv
+a=rtcp-fb:120 nack
+a=rtcp-fb:120 nack pli
+a=rtcp-fb:120 ccm fir
+a=setup:actpass
+a=candidate:0 1 UDP 2122252543 192.168.147.100 34606 typ host
+a=candidate:0 2 UDP 2122252542 192.168.147.100 46746 typ host
+a=rtcp-mux
+m=application 52124 DTLS/SCTP 5000
+a=crypto:1 AES_CM_128_HMAC_SHA1_80 inline:x5IUuL++='jx6la\mjg#f>(D#:Ui\cme!F./{iCO
+c=IN IP4 192.168.147.100
+a=sctpmap:5000 webrtc-datachannel 256
+a=setup:actpass
+a=candidate:0 1 UDP 2122252543 192.168.147.100 52124 typ host
