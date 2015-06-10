@@ -3,31 +3,31 @@
 ## Gliederung
 
 * Was ist WebRTC?
-** Definition
-*** Real Time Communication im Web
-*** getUserMedia
-*** PeerConnection
-*** DataChannels
-** Beispiele
-*** Palava
-*** Sharefest
-*** Cube Slam
-** Standards WebRTC und RTCWEB
+  * Definition
+    * Real Time Communication im Web
+    * getUserMedia
+    * PeerConnection
+    * DataChannels
+  * Beispiele
+    * Palava
+    * Sharefest
+    * Cube Slam
+  * Standards WebRTC und RTCWEB
 * Anwendung
-** getUserMedia() [code]
-** Sicherheitsabfrage Chrome+Firefox
-** Signaling
-** Palava Beispiel [code]
+  * getUserMedia() [code]
+  * Sicherheitsabfrage Chrome+Firefox
+  * Signaling
+  * Palava Beispiel [code]
 * Verbindungsaufbau
-** SDP
-** ICE
-** Fingerprint, TOR
+  * SDP
+  * ICE
+  * Fingerprint, TOR
 * Verschlüsselung
-** Stack
-** SCTP over DTLS
-** DTLS/SRTP
-** Authentication
-** Man in the Middle Signaling + Server
+  * Stack
+  * SCTP over DTLS
+  * DTLS/SRTP
+  * Authentication
+  * Man in the Middle Signaling + Server
 
 ## Quellen
 
