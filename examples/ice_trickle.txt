@@ -1,0 +1,2 @@
+candidate:1 1 UDP 1686110207 84.183.228.37 52124 typ srflx raddr 192.168.147.100 rport 52124
+candidate:1 2 UDP 1686110206 84.183.228.37 34152 typ srflx raddr 192.168.147.100 rport 34152

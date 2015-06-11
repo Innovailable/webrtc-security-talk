@@ -16,56 +16,9 @@
 \patchcmd{\beamer@part}{\setcounter{subsection}{0}}{}{}
 \makeatother
 
-% code listing stuff
+\input{src/listings.tex}
 
-\makeatletter
-\newcommand{\miniscule}{\@setfontsize\miniscule{5}{6}}% \tiny: 6/7
-\makeatother
-
-\usepackage{listings}
-\usepackage{color}
-\definecolor{lightgray}{rgb}{.9,.9,.9}
-\definecolor{darkgray}{rgb}{.4,.4,.4}
-\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
-
-\lstdefinelanguage{JavaScript}{
-  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
-  keywordstyle=\color{blue}\bfseries,
-  ndkeywords={class, export, boolean, throw, implements, import, this},
-  ndkeywordstyle=\color{darkgray}\bfseries,
-  identifierstyle=\color{black},
-  sensitive=false,
-  comment=[l]{//},
-  morecomment=[s]{/*}{*/},
-  commentstyle=\color{purple}\ttfamily,
-  stringstyle=\color{red}\ttfamily,
-  morestring=[b]',
-  morestring=[b]"
-}
-
-\lstset{
-   language=JavaScript,
-   frame=single,
-   backgroundcolor=\color{lightgray},
-   extendedchars=true,
-   basicstyle=\tiny\ttfamily,
-   showstringspaces=false,
-   showspaces=false,
-   numbers=left,
-   numberstyle=\tiny,
-   numbersep=9pt,
-   tabsize=2,
-   breaklines=true,
-   showtabs=false,
-   captionpos=b
-}
-
-\newcommand{\cc}[1]{\includegraphics[height=4mm]{img/#1.png}}
-\usepackage{ifthen}
-\newcommand{\license}[2][]{\\#2\ifthenelse{\equal{#1}{}}{}{\\\scriptsize\url{#1}}}
-\usepackage{textcomp}
-
-\title{Datenschutz \& Datensicherheit \\ von WebRTC}
+\title{\small Datenschutz \& Datensicherheit von \\ \huge WebRTC}
 \author{Stephan Thamm}
 \date{26.06.2015}
 
@@ -125,7 +78,7 @@
 \end{frame}
 
 
-\section{Anwendung}
+\section{Anwendungssicht}
 \subsection{} 
 
 \begin{frame}
@@ -138,12 +91,22 @@
   \frametitle{Kamerazugriff}
   \pause
   \centerline{\includegraphics[width=0.7\textwidth]{img/access_chrome.png}}
-  \hspace{1cm}
+  %\hfill \tiny Chrome
+  \vspace{15pt}
   \centerline{\includegraphics[width=0.7\textwidth]{img/access_firefox.png}}
+  %\hfill \tiny Firefox
 \end{frame}
 
 \begin{frame}
   \frametitle{Peer to Peer}
+  \begin{itemize}
+    \item Holding ...
+    \item ... places
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Multipoint Control Unit (MCU)}
   \begin{itemize}
     \item Holding ...
     \item ... places
@@ -169,7 +132,7 @@
 \subsection{} 
 
 \begin{frame}
-  \frametitle{SDP}
+  \frametitle{Session Description Protocol (SDP)}
   \pause
   \begin{multicols}{2}
     \lstinputlisting[language={},numbers=none,basicstyle=\miniscule\ttfamily]{examples/sdp.txt}
@@ -185,23 +148,28 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{ICE}
-  \begin{itemize}
-    \item Holding ...
-    \item ... places
-  \end{itemize}
+  \frametitle{Interactive Connectivity Establishment (ICE)}
+  \pause
+  \lstinputlisting[language={},numbers=none,firstline=34,lastline=35,basicstyle=\tiny\ttfamily]{examples/sdp.txt}
+  \hfill \tiny Auszug Offer/Answer
+  \vspace{15pt}
+  \pause
+  \lstinputlisting[language={},numbers=none,basicstyle=\tiny\ttfamily,firstline=1,lastline=1]{examples/ice_trickle.txt}
+  \lstinputlisting[language={},numbers=none,basicstyle=\tiny\ttfamily,firstline=2,lastline=2]{examples/ice_trickle.txt}
+  \hfill \tiny ICE Trickling
 \end{frame}
 
 \begin{frame}
   \frametitle{Probleme}
   \begin{itemize}
-    \item<2-> Fingerprinting
-    \item<3-> Umgehung von VPNs
+    \item<2-> Peer erhält alle IP Adressen
+    \item<3-> Fingerprinting
+    \item<4-> Umgehung von VPNs
   \end{itemize}
 \end{frame}
 
 
-\section{Verschlüsselung}
+\section{On the Wire}
 \subsection{} 
 
 \begin{frame}
@@ -215,21 +183,24 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{DataChannel}
-  \centerline{\includegraphics[width=0.7\textwidth]{img/stack_oreilly_datachannels.png}}
-\end{frame}
-
-\begin{frame}
   \frametitle{PeerConnection}
   \centerline{\includegraphics[width=0.7\textwidth]{img/stack_oreilly_pc.png}}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Authentifizierung}
-  \begin{itemize}
-    \item Holding ...
-    \item ... places
-  \end{itemize}
+  \frametitle{Schlüsselaustausch}
+  \pause
+  \lstinputlisting[language={},numbers=none,firstline=9,lastline=9,basicstyle=\small\ttfamily]{examples/sdp.txt}
+  \hfill \tiny SDES, Auszug Offer/Answer
+  \vspace{15pt} \\
+  \pause
+  \lstinputlisting[language={},numbers=none,firstline=7,lastline=7,basicstyle=\small\ttfamily]{examples/sdp.txt}
+  \hfill \tiny DTLS-SRTP, Auszug Offer/Answer
+\end{frame}
+
+\begin{frame}
+  \frametitle{DataChannel}
+  \centerline{\includegraphics[width=0.7\textwidth]{img/stack_oreilly_datachannels.png}}
 \end{frame}
 
 \begin{frame}
@@ -256,6 +227,7 @@
   \frametitle{Sicherheitskritische Aspekte}
   \begin{itemize}
     \item Kamera- und Mikrofonzugriff
+    \item Peers erhalten alle IP Adressen
     \item Umgehung von VPNs
     \item Fingerprinting
     \item Authentifizierung der Peers
