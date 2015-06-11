@@ -1,31 +1,15 @@
 TEX_FILES=$(wildcard src/*.tex)
-PDF_FILES=$(TEX_FILES:src/%.tex=out/%.pdf)
-
-PICDIR = ./img
-
-depsvg = $(wildcard $(PICDIR)/*.svg)
-svgpdf = $(patsubst %.svg,%.pdf,$(depsvg))
+IMG_FILES=$(wildcard img/*)
+EXAMPLE_FILES=$(wildcard examples/*)
 
 
-all: deppdf $(PDF_FILES)
+all: out/slides.pdf
 
 clean:
-	rm $(svgpdf)
 	rm -rf out
 
-deppdf: $(svgpdf)
-	echo test
-	echo $(svgpdf)
-	echo test
-
-
-$(PICDIR)/%.pdf: $(PICDIR)/%.svg 
-	inkscape -z -T -A $@ $<
-
-
-out/%.pdf:  src/%.tex deppdf  Makefile
+out/%.pdf:  src/%.tex $(IMG_FILES) $(EXAMPLE_FILES) Makefile
 	mkdir -p out
 	pdflatex -interaction nonstopmode -output-directory out $<
-	#pdflatex -output-directory out $<
 
 
