@@ -1,14 +1,12 @@
-var constraints = { audio: true, video: { width: 1280, height: 720 };
+var constraints = { audio: true, video: true };
 
-navigator.getUserMedia( constraints,
+navigator.getUserMedia(constraints,
     function(stream) {
-        var video = document.querySelector('video');
-        video.src = window.URL.createObjectURL(stream);
-        video.onloadedmetadata = function(e) {
-            video.play();
-        };
+        var video = $("<video autoplay>");
+        video[0].src = window.URL.createObjectURL(stream);
+        $("body").append(video);
     },
     function(err) {
-        console.log("Error: " + err.name);
+        alert("Error: " + err.name);
     }
 );

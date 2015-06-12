@@ -87,7 +87,7 @@
 \begin{frame}
   \frametitle{getUserMedia()}
   \pause
-  \lstinputlisting{examples/gum.js}
+  \lstinputlisting[basicstyle=\footnotesize\ttfamily,numberstyle=\footnotesize]{examples/gum.js}
 \end{frame}
 
 \begin{frame}
@@ -101,22 +101,6 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Peer to Peer}
-  \begin{itemize}
-    \item Holding ...
-    \item ... places
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Multipoint Control Unit (MCU)}
-  \begin{itemize}
-    \item Holding ...
-    \item ... places
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
   \frametitle{Signaling}
   \begin{itemize}
     \item Holding ...
@@ -125,22 +109,26 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{palava-client}
+  \frametitle{Peer to Peer}
   \pause
-  \lstinputlisting{examples/palava.js}
+  \centerline{\input{src/peers.tex}}
 \end{frame}
+
+\begin{frame}
+  \frametitle{Multipoint Control Unit (MCU)}
+  \pause
+  \centerline{\input{src/mcu.tex}}
+\end{frame}
+
+%\begin{frame}
+  %\frametitle{palava-client}
+  %\pause
+  %\lstinputlisting{examples/palava.js}
+%\end{frame}
 
 
 \section{Verbindungsaufgbau}
 \subsection{} 
-
-\begin{frame}
-  \frametitle{Session Description Protocol (SDP)}
-  \pause
-  \begin{multicols}{2}
-    \lstinputlisting[language={},numbers=none,basicstyle=\miniscule\ttfamily]{examples/sdp.txt}
-  \end{multicols}
-\end{frame}
 
 \begin{frame}
   \frametitle{Ablauf}
@@ -148,6 +136,14 @@
     \item Holding ...
     \item ... places
   \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Session Description Protocol (SDP)}
+  \pause
+  \begin{multicols}{2}
+    \lstinputlisting[language={},numbers=none,basicstyle=\miniscule\ttfamily]{examples/sdp.txt}
+  \end{multicols}
 \end{frame}
 
 \begin{frame}
