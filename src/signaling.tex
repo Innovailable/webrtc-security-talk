@@ -12,7 +12,7 @@
 
   \onslide<+>{
     \node (offer) at (4, 0.8) {PeerConnection};
-    \draw [active, dotted, <->] (a) -- (b);
+    \draw [dotted, <->] (a) -- (b);
   }
 
   \onslide<+>{}
@@ -28,12 +28,12 @@
   }
 
   \onslide<+>{
-    \draw [active, ->] (web) -- (a);
+    \draw [->] (web) -- (a);
   }
 
   \onslide<+>{
-    \draw [->] (web) -- (a);
-    \draw [active, ->] (web) -- (b);
+    \draw [inactive, ->] (web) -- (a);
+    \draw [->] (web) -- (b);
   }
 
   \onslide<+>{}
@@ -51,12 +51,12 @@
   }
 
   \onslide<+>{
-    \draw [active, ->] (a) -- (signaling);
+    \draw [->] (a) -- (signaling);
   }
 
   \onslide<+>{
-    \draw [->] (a) -- (signaling);
-    \draw [active, ->] (signaling) -- (b);
+    \draw [inactive, ->] (a) -- (signaling);
+    \draw [->] (signaling) -- (b);
   }
 
   \onslide<+>{}
@@ -67,12 +67,12 @@
     \node (offer) at (4, 1) {Answer};
   }
   \onslide<+>{
-    \draw [active, ->] (b) -- (signaling);
+    \draw [->] (b) -- (signaling);
   }
 
   \onslide<+>{
-    \draw [->] (b) -- (signaling);
-    \draw [active, ->] (signaling) -- (a);
+    \draw [inactive, ->] (b) -- (signaling);
+    \draw [->] (signaling) -- (a);
   }
 
   \onslide<+>{}
@@ -90,13 +90,13 @@
   }
 
   \onslide<+>{
-    \draw [active, <->] (b) -- (stun);
+    \draw [<->] (b) -- (stun);
   }
 
   \onslide<+>{
-    \draw [<->] (b) -- (stun);
-    \draw [active, ->] (b) -- (signaling);
-    \draw [active, ->] (signaling) -- (a);
+    \draw [inactive, <->] (b) -- (stun);
+    \draw [->] (b) -- (signaling);
+    \draw [->] (signaling) -- (a);
   }
 
   \onslide<+>{}
@@ -108,13 +108,13 @@
   }
 
   \onslide<+>{
-    \draw [active, <->] (a) -- (stun);
+    \draw [<->] (a) -- (stun);
   }
 
   \onslide<+>{
-    \draw [<->] (a) -- (stun);
-    \draw [active, ->] (a) -- (signaling);
-    \draw [active, ->] (signaling) -- (b);
+    \draw [inactive, <->] (a) -- (stun);
+    \draw [->] (a) -- (signaling);
+    \draw [->] (signaling) -- (b);
   }
 
   \onslide<+>{}
@@ -123,7 +123,7 @@
 
   \onslide<+>{
     \node (offer) at (4, 0.8) {PeerConnection};
-    \draw [active, <->] (a) -- (b);
+    \draw [<->] (a) -- (b);
   }
 
 \end{tikzpicture}

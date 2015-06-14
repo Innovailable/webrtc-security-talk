@@ -1,0 +1,95 @@
+\begin{tikzpicture}
+  \onslide<+->{}
+
+  \onslide<4,9-11>{
+    \node (offer) at +(180: 2.2) {Offer};
+  }
+
+  \onslide<5,12-14>{
+    \node (answer) at +(0: 2.2) {Answer};
+  }
+
+  \onslide<6,16>{
+    \node (pc) at +(270: 2.5) {PeerConnection};
+  }
+
+  % setup
+
+  \onslide<+->{
+    \node[user] (a) at (210: 4) {Alice};
+    \node[user] (b) at +(330: 4) {Bob};
+  }
+
+  \onslide<+->{
+    \node[server] (signaling) at (90: 1) {\large Signaling};
+  }
+
+  % simple signaling
+
+  \onslide<+>{
+    \draw [dotted, ->] (a) -- (signaling);
+    \draw [dotted, ->] (signaling) -- (b);
+  }
+
+  \onslide<+>{
+    \draw [dotted, <-] (a) -- (signaling);
+    \draw [dotted, <-] (signaling) -- (b);
+  }
+
+  \onslide<+>{
+    \draw [dotted, <->] (a) -- (b);
+  }
+
+  \onslide<+->{}
+
+  % evil chuck
+
+  \onslide<+->{
+    \node[user] (c) at +(270: 1) {Chuck};
+  }
+
+  % replace offer
+
+  \onslide<+>{
+    \draw [->] (a) -- (signaling);
+  }
+
+  \onslide<+>{
+    \draw [inactive, ->] (a) -- (signaling);
+    \draw [->] (signaling) to [bend right] (c);
+  }
+
+  \onslide<+>{
+    \draw [inactive, ->] (a) -- (signaling);
+    \draw [inactive, ->] (signaling) to [bend right] (c);
+    \draw [->] (c) to [bend right] (signaling);
+    \draw [->] (signaling) -- (b);
+  }
+
+  % replace answer
+
+  \onslide<+>{
+    \draw [<-] (signaling) -- (b);
+  }
+
+  \onslide<+>{
+    \draw [inactive, <-] (signaling) -- (b);
+    \draw [<-] (c) to [bend right] (signaling);
+  }
+
+  \onslide<+>{
+    \draw [inactive, <-] (signaling) -- (b);
+    \draw [inactive, <-] (c) to [bend right] (signaling);
+    \draw [<-] (signaling) to [bend right] (c);
+    \draw [<-] (a) -- (signaling);
+  }
+
+  \onslide<+>{}
+
+  % profit
+
+  \onslide<+>{
+    \draw [<->] (a) -- (c);
+    \draw [<->] (c) -- (b);
+  }
+\end{tikzpicture}

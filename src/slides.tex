@@ -10,9 +10,11 @@
 \usepackage{multicol}
 
 \usepackage{tikz}
+\usetikzlibrary{positioning,arrows}
 \tikzstyle{user} = [rectangle, rounded corners, fill=gray!20, bottom color=gray!15, minimum width=50pt]
 \tikzstyle{server} = [rectangle, fill=gray!60, bottom color=gray!50, minimum width=60pt, minimum height= 20pt]
-\tikzstyle{active}=[line width=0.5mm]
+\tikzstyle{every path} = [line width=0.4mm]
+\tikzstyle{inactive} = [color=gray!30]
 
 % fix appendix
 
@@ -47,6 +49,25 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Standardisierung}
+  \begin{itemize}
+    \item<2-> 2011 von Google initiiert
+    \item<3-> Work in Progress
+    \item<4-> WebRTC Gruppe in W3C
+    \item<5-> RTCWEB Gruppe in IETF
+    \item<6-> ORTC/WebRTC 1.1
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Verbreitung}
+  \pause
+  \centerline{\includegraphics[height=0.7\textheight]{img/webrtc_ready.png}}
+  \hfill \tiny http://iswebrtcreadyyet.com/ \\
+  \hfill \tiny Stand 10.06.2015
+\end{frame}
+
+\begin{frame}
   \frametitle{Palava}
   \includegraphics<1>[height=0.7\textheight]{img/palava_1.jpg}
   \includegraphics<2>[height=0.7\textheight]{img/palava_2.jpg}
@@ -64,25 +85,6 @@
   \frametitle{Cube Slam}
   \includegraphics[height=0.7\textheight]{img/cube_slam.png} \\
   \hfill \tiny https://www.cubeslam.com
-\end{frame}
-
-\begin{frame}
-  \frametitle{Standardisierung}
-  \begin{itemize}
-    \item<2-> 2011 von Google initiiert
-    \item<3-> Work in Progress
-    \item<4-> WebRTC Gruppe in W3C
-    \item<5-> RTCWEB Gruppe in IETF
-    \item<6-> ORTC/WebRTC 1.1
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Verbreitung}
-  \pause
-  \centerline{\includegraphics[height=0.7\textheight]{img/webrtc_ready.png}}
-  \hfill \tiny http://iswebrtcreadyyet.com/ \\
-  \hfill \tiny Stand 10.06.2015
 \end{frame}
 
 
@@ -117,18 +119,20 @@
   \centerline{\input{src/mcu.tex}}
 \end{frame}
 
-%\begin{frame}
-  %\frametitle{palava-client}
-  %\pause
-  %\lstinputlisting{examples/palava.js}
-%\end{frame}
+\begin{comment}
+\begin{frame}
+  \frametitle{palava-client}
+  \pause
+  \lstinputlisting{examples/palava.js}
+\end{frame}
+\end{comment}
 
 
 \section{Verbindungsaufgbau}
 \subsection{} 
 
 \begin{frame}
-  \frametitle{Signaling}
+  \frametitle{Ablauf}
   \centerline{\input{src/signaling.tex}}
 \end{frame}
 
@@ -140,6 +144,7 @@
   \end{multicols}
 \end{frame}
 
+\begin{comment}
 \begin{frame}
   \frametitle{m Lines}
 
@@ -158,6 +163,7 @@
     \hfill \tiny Auszug Offer/Answer
   }
 \end{frame}
+\end{comment}
 
 \begin{frame}
   \frametitle{Interactive Connectivity Establishment (ICE)}
@@ -216,19 +222,8 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Man in the Middle - Signaling}
-  \begin{itemize}
-    \item Holding ...
-    \item ... places
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Man in the Middle - Website}
-  \begin{itemize}
-    \item Holding ...
-    \item ... places
-  \end{itemize}
+  \frametitle{Man in the Middle}
+  \centerline{\input{src/mitm.tex}}
 \end{frame}
 
 
