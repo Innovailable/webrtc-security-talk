@@ -1,0 +1,129 @@
+\begin{tikzpicture}[transform shape]
+  \onslide<+>{}
+
+  % alice and bob introduction
+
+  \onslide<+->{
+    \node[user] (a) at (2, 0) {Alice};
+    \node[user] (b) at (6, 0) {Bob};
+  }
+
+  % how to peer connection?
+
+  \onslide<+>{
+    \node (offer) at (4, 0.8) {PeerConnection};
+    \draw [active, dotted, <->] (a) -- (b);
+  }
+
+  \onslide<+>{}
+
+  % download webapp
+
+  \onslide<6-7>{
+    \node (offer) at (4, 2) {Download Webapp};
+  }
+
+  \onslide<+->{
+    \node[server] (web) at (0, 3) {\large Webserver};
+  }
+
+  \onslide<+>{
+    \draw [active, ->] (web) -- (a);
+  }
+
+  \onslide<+>{
+    \draw [->] (web) -- (a);
+    \draw [active, ->] (web) -- (b);
+  }
+
+  \onslide<+>{}
+
+  % signaling
+
+  \onslide<+->{
+    \node[server] (signaling) at (4, 3) {\large Signaling};
+  }
+
+  % offer
+
+  \onslide<10-11>{
+    \node (offer) at (4, 1) {Offer};
+  }
+
+  \onslide<+>{
+    \draw [active, ->] (a) -- (signaling);
+  }
+
+  \onslide<+>{
+    \draw [->] (a) -- (signaling);
+    \draw [active, ->] (signaling) -- (b);
+  }
+
+  \onslide<+>{}
+
+  % answer
+
+  \onslide<13-14>{
+    \node (offer) at (4, 1) {Answer};
+  }
+  \onslide<+>{
+    \draw [active, ->] (b) -- (signaling);
+  }
+
+  \onslide<+>{
+    \draw [->] (b) -- (signaling);
+    \draw [active, ->] (signaling) -- (a);
+  }
+
+  \onslide<+>{}
+
+  % stun
+
+  \onslide<+->{
+    \node[server] (stun) at (8, 3) {\large STUN};
+  }
+
+  % ice b
+
+  \onslide<17-18>{
+    \node (offer) at (6, 2.3) {Hole Punching};
+  }
+
+  \onslide<+>{
+    \draw [active, <->] (b) -- (stun);
+  }
+
+  \onslide<+>{
+    \draw [<->] (b) -- (stun);
+    \draw [active, ->] (b) -- (signaling);
+    \draw [active, ->] (signaling) -- (a);
+  }
+
+  \onslide<+>{}
+
+  % ice a
+
+  \onslide<20-21>{
+    \node (offer) at (7, 1.2) {Hole Punching};
+  }
+
+  \onslide<+>{
+    \draw [active, <->] (a) -- (stun);
+  }
+
+  \onslide<+>{
+    \draw [<->] (a) -- (stun);
+    \draw [active, ->] (a) -- (signaling);
+    \draw [active, ->] (signaling) -- (b);
+  }
+
+  \onslide<+>{}
+
+  % peer connection done
+
+  \onslide<+>{
+    \node (offer) at (4, 0.8) {PeerConnection};
+    \draw [active, <->] (a) -- (b);
+  }
+
+\end{tikzpicture}

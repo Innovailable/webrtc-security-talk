@@ -2,12 +2,17 @@
 %\documentclass[20pt,handout]{beamer}
 \usetheme{Darmstadt}
 \usepackage{graphicx}
-%\usepackage[german]{babel}
+\usepackage{verbatim}
+\usepackage[german]{babel}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{tikz}
 \setbeamertemplate{footline}[frame number]
 \usepackage{multicol}
+
+\usepackage{tikz}
+\tikzstyle{user} = [rectangle, rounded corners, fill=gray!20, bottom color=gray!15, minimum width=50pt]
+\tikzstyle{server} = [rectangle, fill=gray!60, bottom color=gray!50, minimum width=60pt, minimum height= 20pt]
+\tikzstyle{active}=[line width=0.5mm]
 
 % fix appendix
 
@@ -101,14 +106,6 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Signaling}
-  \begin{itemize}
-    \item Holding ...
-    \item ... places
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
   \frametitle{Peer to Peer}
   \pause
   \centerline{\input{src/peers.tex}}
@@ -131,11 +128,8 @@
 \subsection{} 
 
 \begin{frame}
-  \frametitle{Ablauf}
-  \begin{itemize}
-    \item Holding ...
-    \item ... places
-  \end{itemize}
+  \frametitle{Signaling}
+  \centerline{\input{src/signaling.tex}}
 \end{frame}
 
 \begin{frame}
@@ -144,6 +138,25 @@
   \begin{multicols}{2}
     \lstinputlisting[language={},numbers=none,basicstyle=\miniscule\ttfamily]{examples/sdp.txt}
   \end{multicols}
+\end{frame}
+
+\begin{frame}
+  \frametitle{m Lines}
+
+  \only<2>{
+    \lstinputlisting[language={},firstline=8,lastline=24]{examples/sdp.txt}
+    \hfill \tiny Auszug Offer/Answer
+  }
+
+  \only<3>{
+    \lstinputlisting[language={},firstline=25,lastline=36]{examples/sdp.txt}
+    \hfill \tiny Auszug Offer/Answer
+  }
+
+  \only<4>{
+    \lstinputlisting[language={},firstline=37,lastline=42]{examples/sdp.txt}
+    \hfill \tiny Auszug Offer/Answer
+  }
 \end{frame}
 
 \begin{frame}
