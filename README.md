@@ -1,36 +1,27 @@
 # Vortrag WebRTC Security
 
-## Gliederung
+## Abstract
 
-* Was ist WebRTC?
-  * Definition
-    * Real Time Communication im Web
-    * getUserMedia
-    * PeerConnection
-    * DataChannels
-  * Beispiele
-    * Palava
-    * Sharefest
-    * Cube Slam
-  * Standards WebRTC und RTCWEB
-* Anwendung
-  * getUserMedia() [code]
-  * Sicherheitsabfrage Chrome+Firefox
-  * Signaling
-  * Palava Beispiel [code]
-* Verbindungsaufbau
-  * SDP
-  * ICE
-  * Fingerprint, TOR
-* Verschlüsselung
-  * Stack
-  * SCTP over DTLS
-  * DTLS/SRTP
-  * Authentication
-  * Man in the Middle Signaling + Server
+Dank WebRTC können Webapplikationen verschlüsselte Videokonferenzen und
+Dateiübertragung direkt zwischen den Browsern anbieten. Aber wie Funktioniert
+diese Technologie eigentlich, wie sicher ist sie wirklich und wo liegen ihre
+Grenzen?
 
-## Quellen
+## Description
 
-* Stack: http://chimera.labs.oreilly.com/books/1230000000545/ch18.html#_real_time_network_transports
-* getUserMedia() Example: https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getUserMedia
+WebRTC ist ein in Entwicklung befindlicher Standerd, der den Einsatz von
+Echtzeitkommunikation im Browser ermöglicht.  Dabei wird für die Übertragung
+der Daten eine Ende-zu-Ende Verschlüsselte Verbindung zwischen den Browsern
+verwendet und es werden keine, oft fehleranfällige, Plugins wie Adobe Flash
+benötigt. Nicht zuletzt aufgrund dieser Vorteile erfreut sich die Technologie
+zunehmender Beliebtheit und wird nicht nur in neu Entstanden Projekten wie
+palava.tv sondern z.B. auch von Facebook verwendet.
 
+Der Vortrag bietet eine Einführung in die Möglichkeiten von WebRTC und gibt
+einen Überblick über den Standard von der Sicht eines Webentwicklers bis
+hinunter zur Übertragung der Informationen im Netzwerk.
+
+Ein besonderer Fokus liegt auf den Chancen und Probleme die WebRTC in Bezug auf
+Datenschutz und Datensicherheit mit sich bringt. Ist alles wo WebRTC drauf
+steht automatisch sicher? Kann eine Webapplikation überhaupt absolute
+Sicherheit bieten?
