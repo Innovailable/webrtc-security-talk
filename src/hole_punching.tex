@@ -1,0 +1,147 @@
+\begin{tikzpicture}[transform shape]
+  \onslide<+>{}
+
+  % introduction
+
+  \onslide<+->{
+    \node[user] (a) at +(180: 5) {Alice};
+    \node[user] (b) at +(0: 5) {Bob};
+  }
+
+  \onslide<+>{
+    \node (udp) at +(90: 0.5) {UDP};
+    \draw [<->] (a) -- (b);
+  }
+
+  \onslide<+>{}
+
+  % one nat
+
+  \onslide<+->{
+    \node[rectangle, fill=gray, minimum width=5pt, minimum height=120pt] (nata) at +(180: 3) {};
+  }
+
+  \onslide<+>{
+    \node[user] (c) at +(200: 5) {Charlie};
+    \node[user] (c) at +(160: 5) {Dave};
+  }
+
+  \onslide<+>{}
+
+  \onslide<+>{
+    \draw [->] (b) -- (nata);
+  }
+
+  \onslide<+>{}
+
+  \onslide<+>{
+    \draw [->] (a) -- (nata);
+    \draw [->] (nata) -- (b);
+  }
+
+  \onslide<+>{
+    \draw [dotted, -] (a) -- (nata);
+    \draw [dotted, -] (nata) -- (b);
+  }
+
+  \onslide<+>{
+    \draw [<-] (a) -- (nata);
+    \draw [<-] (nata) -- (b);
+  }
+
+  \onslide<+>{
+    \draw [<->] (a) -- (nata);
+    \draw [<->] (nata) -- (b);
+  }
+
+  \onslide<+>{}
+
+  % two nats and STUN
+
+  \onslide<+->{
+    \node[rectangle, fill=gray, minimum width=5pt, minimum height=120pt] (natb) at +(0: 3) {};
+  }
+
+  \onslide<+>{
+    \draw [->] (a) -- (nata);
+    \draw [->] (nata) -- (natb);
+  }
+
+  \onslide<+>{}
+
+  \onslide<+>{
+    \draw [->] (b) -- (natb);
+    \draw [->] (natb) -- (nata);
+  }
+
+  \onslide<+>{}
+
+  \onslide<+->{
+    \node[server] (stun) at +(270: 3) {STUN};
+  }
+
+  \onslide<+>{
+    \draw [->] (a) -- (nata);
+    \draw [->] (nata) -- (stun);
+  }
+
+  \onslide<+>{
+    \draw [<-] (a) -- (nata);
+    \draw [<-] (nata) -- (stun);
+  }
+
+  \onslide<+>{
+    \draw [dotted, -] (a) -- (nata);
+    \draw [dotted, -] (nata) -- (stun);
+  }
+
+  \onslide<+>{
+    \draw [dotted, -] (a) -- (nata);
+    \draw [dotted, -] (nata) -- (stun);
+    \draw [->] (b) -- (natb);
+    \draw [->] (natb) -- (nata);
+  }
+
+  \onslide<+>{
+    \draw [dotted, -] (nata) -- (stun);
+    \draw [->] (b) -- (natb);
+    \draw [->] (natb) -- (nata);
+    \draw [->] (nata) -- (a);
+  }
+
+  \onslide<+>{
+    \draw [<->] (b) -- (natb);
+    \draw [<->] (natb) -- (nata);
+    \draw [<->] (nata) -- (a);
+  }
+
+  \onslide<+>{}
+
+  % TURN
+
+  \onslide<+->{
+    \node[server] (turn) at +(90: 3) {TURN};
+  }
+
+  \onslide<+>{
+    \draw [->] (a) -- (nata);
+    \draw [->] (nata) -- (turn);
+  }
+
+  \onslide<+>{
+    \draw [inactive, ->] (a) -- (nata);
+    \draw [inactive, ->] (nata) -- (turn);
+    \draw [->] (turn) -- (natb);
+    \draw [->] (natb) -- (b);
+  }
+
+  \onslide<+>{
+    \draw [<->] (a) -- (nata);
+    \draw [<->] (nata) -- (turn);
+    \draw [<->] (turn) -- (natb);
+    \draw [<->] (natb) -- (b);
+  }
+
+  \onslide<+>{}
+
+\end{tikzpicture}
