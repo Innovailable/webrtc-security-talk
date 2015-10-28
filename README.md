@@ -31,4 +31,6 @@ Sicherheit bieten?
 Die fertig gebauten Folien stehen unter
 [Releases](https://github.com/thammi/webrtc-security-talk/releases) in allen
 Versionen in denen der Vortrag bisher gehalten wurde zum Download bereit.
+Soweit verfügbar gibt es dort auch einen Link zu den Aufzeichnungen der
+Vorträge.
 
