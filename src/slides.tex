@@ -171,11 +171,6 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Hole Punching}
-  \centerline{\input{src/hole_punching.tex}}
-\end{frame}
-
-\begin{frame}
   \frametitle{Interactive Connectivity Establishment (ICE)}
   \pause
   \lstinputlisting[language={},numbers=none,firstline=34,lastline=35,basicstyle=\tiny\ttfamily]{examples/sdp.txt}
@@ -186,6 +181,10 @@
   \lstinputlisting[language={},numbers=none,basicstyle=\tiny\ttfamily,firstline=2,lastline=2]{examples/ice_trickle.txt}
   \hfill \tiny ICE Trickling
 \end{frame}
+
+
+\section{Bibliotheken}
+\subsection{} 
 
 \begin{frame}
   \frametitle{palava-client}
@@ -209,58 +208,29 @@
 \end{frame}
 
 
-\section{On the Wire}
-\subsection{} 
-
-\begin{frame}
-  \frametitle{Protokolle}
-  \centerline{\includegraphics[width=0.7\textwidth]{img/stack_oreilly.png}}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Web-Applikation und Signaling}
-  \centerline{\includegraphics[width=0.7\textwidth]{img/stack_oreilly_signaling.png}}
-\end{frame}
-
-\begin{frame}
-  \frametitle{PeerConnection}
-  \centerline{\includegraphics[width=0.7\textwidth]{img/stack_oreilly_pc.png}}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Schlüsselaustausch}
-  \pause
-  \lstinputlisting[language={},numbers=none,firstline=9,lastline=9,basicstyle=\small\ttfamily]{examples/sdp.txt}
-  \hfill \tiny SDES, Auszug Offer/Answer
-  \vspace{15pt} \\
-  \pause
-  \lstinputlisting[language={},numbers=none,firstline=7,lastline=7,basicstyle=\small\ttfamily]{examples/sdp.txt}
-  \hfill \tiny DTLS-SRTP, Auszug Offer/Answer
-\end{frame}
-
-\begin{frame}
-  \frametitle{DataChannel}
-  \centerline{\includegraphics[width=0.7\textwidth]{img/stack_oreilly_datachannels.png}}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Man in the Middle}
-  \centerline{\input{src/mitm.tex}}
-\end{frame}
-
-
 \section{Fazit}
 \subsection{}
 
 \begin{frame}
-  \frametitle{Sicherheitskritische Aspekte}
+  \frametitle{Was brauche ich für WebRTC?}
   \begin{itemize}
-    \item Kamera- und Mikrofonzugriff
-    \item Peers erhalten alle IP Adressen
-    \item Umgehung von VPNs
-    \item Fingerprinting
-    \item Authentifizierung der Peers
-    \item Vertrauen in Website-Code
+    \onslide<+->{}
+    \item<+-> eine passende Idee
+    \item<+-> WebRTC Bibliothek
+    \begin{itemize}
+      \item<+-> rtc-lib \onslide<+->{, palava-client} \onslide<+->{, native} \onslide<+->{\dots}
+    \end{itemize}
+    \item<+-> Signaling Server
+    \begin{itemize}
+      \item<+-> easy-signaling\onslide<+->{, palava-machine}\onslide<+->{ \dots}
+      \item<+-> wss://rtc.innovailable.eu/ (rtc-lib)
+      \item<+-> wss://signaling.innovailable.eu/ (palava-client)
+    \end{itemize}
+    \item<+-> STUN-Server\onslide<+->{ + evtl TURN-Server}
+    \begin{itemize}
+      \item<+-> stun\onslide<+->{, coturn}\onslide<+->{ \dots}
+    \end{itemize}
+    \item<+-> klassische Webentwicklung
   \end{itemize}
 \end{frame}
 
